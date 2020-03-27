@@ -17,7 +17,7 @@ export default class Root extends React.Component {
     ) : (
       <div className="mt-16">
         <BrowserRouter>
-          <Route path="/planets" component={PlanetPage} />
+          <Route path="/" component={PlanetPage} />
         </BrowserRouter>
       </div>
     );

@@ -4,8 +4,8 @@ const path = require("path");
 
 module.exports = webpackConfigEnv => {
   const defaultConfig = singleSpaDefaults({
-    orgName: "react-mf",
-    projectName: "planets",
+    orgName: "briuin",
+    projectName: "timeline",
     webpackConfigEnv
   });
 

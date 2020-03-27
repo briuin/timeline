@@ -1,4 +1,4 @@
-import { fetchWithCache } from "@react-mf/api";
+import { fetchWithCache } from "@briuin/api";
 import { combineLatest } from "rxjs";
 
 export function getPlanets(pageNum = 1) {

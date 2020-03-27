@@ -3,7 +3,7 @@ import PlanetList from "../planet-list/planet-list.component.js";
 import SelectedPlanet from "./selected-planet/selected-planet.component.js";
 import { get } from "lodash";
 import { getPlanets } from "../utils/api.js";
-import { Button } from "@react-mf/styleguide";
+import { Button } from "@briuin/styleguide";
 
 export default function PlanetPage(props) {
   const initialState = {
