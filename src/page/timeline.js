@@ -16,7 +16,7 @@ export default function TimelinePage(props) {
   const regexSearch = /[0-9]+/.exec(pathname);
   const selected = get(regexSearch, "[0]");
   const timelinesElement = timelines.map(x => (
-    <span>
+    <span key={`${x.year}-${x.month}`}>
       {x.year} - {x.month}
     </span>
   ));

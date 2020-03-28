@@ -7320,7 +7320,7 @@ System.register(["react", "react-dom"], function(n) {
                   u.map(function(n) {
                     return o.a.createElement(
                       "span",
-                      null,
+                      { key: "".concat(n.year, "-").concat(n.month) },
                       n.year,
                       " - ",
                       n.month
