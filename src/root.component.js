@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-import PlanetPage from "./planets-page/planets-page.component.js";
+import Timelines from "./page/timeline.js";
 
 export default class Root extends React.Component {
   state = {
@@ -17,7 +17,7 @@ export default class Root extends React.Component {
     ) : (
       <div className="mt-16">
         <BrowserRouter>
-          <Route path="/" component={PlanetPage} />
+          <Route path="/" component={Timelines} />
         </BrowserRouter>
       </div>
     );

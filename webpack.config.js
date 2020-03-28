@@ -9,6 +9,9 @@ module.exports = webpackConfigEnv => {
     webpackConfigEnv
   });
 
+  defaultConfig.output.filename = "app.js";
+  defaultConfig.output.path = path.resolve(process.cwd(), "docs");
+
   const rxjsExternals = {
     externals: [/^rxjs\/?.*$/]
   };
