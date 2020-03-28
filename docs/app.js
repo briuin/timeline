@@ -7314,21 +7314,25 @@ System.register(["react", "react-dom"], function(n) {
               }, []);
               var u = r.timelines,
                 a = n.location.pathname,
-                c = /[0-9]+/.exec(a);
-              Object(sn.get)(c, "[0]");
+                c = /[0-9]+/.exec(a),
+                f =
+                  (Object(sn.get)(c, "[0]"),
+                  u.map(function(n) {
+                    return o.a.createElement(
+                      "span",
+                      null,
+                      n.year,
+                      " - ",
+                      n.month
+                    );
+                  }));
               return o.a.createElement(
                 "div",
                 null,
                 o.a.createElement(
                   "div",
                   { className: "flex" },
-                  o.a.createElement(
-                    "div",
-                    { className: "p-6 w-1/3" },
-                    u[0].year,
-                    " - ",
-                    u[0].month
-                  )
+                  o.a.createElement("div", { className: "p-6 w-1/3" }, f)
                 )
               );
             }

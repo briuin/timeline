@@ -15,13 +15,15 @@ export default function TimelinePage(props) {
   const { pathname } = props.location;
   const regexSearch = /[0-9]+/.exec(pathname);
   const selected = get(regexSearch, "[0]");
-
+  const timelinesElement = timelines.map(x => (
+    <span>
+      {x.year} - {x.month}
+    </span>
+  ));
   return (
     <div>
       <div className="flex">
-        <div className="p-6 w-1/3">
-          {timelines[0].year} - {timelines[0].month}
-        </div>
+        <div className="p-6 w-1/3">{timelinesElement}</div>
       </div>
     </div>
   );
