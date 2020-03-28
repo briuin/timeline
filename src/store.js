@@ -1,8 +1,12 @@
-import { createStore } from "redux";
+import { createStore, combineReducers } from "redux";
+import { Timeline } from "./entities/timeline";
 
 const initialState = {
-  year: new Date().getFullYear(),
-  month: new Date().getMonth() + 1
+  selectedTimeline: new Timeline(
+    new Date().getFullYear(),
+    new Date().getMonth() + 1
+  ),
+  timelines: [new Timeline(new Date().getFullYear(), new Date().getMonth() + 1)]
 };
 
 function reducer(state = initialState, action) {
@@ -19,4 +23,6 @@ function reducer(state = initialState, action) {
   }
 }
 
-export const storeInstance = createStore(reducer);
+export const storeInstance = createStore(
+  combineReducers({ namespace: () => "timeline", reducer })
+);

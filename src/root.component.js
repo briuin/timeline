@@ -1,10 +1,12 @@
 import React from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-import Timelines from "./page/timeline.js";
+import Timeline from "./page/timeline.js";
 
 export default class Root extends React.Component {
   state = {
-    hasError: false
+    hasError: false,
+    store: this.props.store,
+    globalEventDistributor: this.props.globalEventDistributor
   };
 
   componentDidCatch(error, info) {
@@ -17,7 +19,10 @@ export default class Root extends React.Component {
     ) : (
       <div className="mt-16">
         <BrowserRouter>
-          <Route path="/" component={Timelines} />
+          <Route
+            path="/"
+            render={props => <Timeline {...props} {...this.props} />}
+          />
         </BrowserRouter>
       </div>
     );
