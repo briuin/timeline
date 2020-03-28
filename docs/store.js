@@ -395,7 +395,9 @@ System.register([], function(e) {
                   switch (t.type) {
                     case "CHANGE_TIME":
                       var n = t.payload;
-                      return s({}, e, { year: n.year, month: n.month });
+                      return s({}, e, {
+                        selectedTimeline: new a(n.year, n.month)
+                      });
                     default:
                       return e;
                   }

@@ -15,8 +15,7 @@ function reducer(state = initialState, action) {
       const { payload } = action;
       return {
         ...state,
-        year: payload.year,
-        month: payload.month
+        selectedTimeline: new Timeline(payload.year, payload.month)
       };
     default:
       return state;
