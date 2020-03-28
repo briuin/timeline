@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import Timeline from "./page/timeline.js";
+import { Provider } from "react-redux";
 
 export default class Root extends React.Component {
   state = {
@@ -18,12 +19,14 @@ export default class Root extends React.Component {
       <div>Error</div>
     ) : (
       <div className="mt-16">
-        <BrowserRouter>
-          <Route
-            path="/"
-            render={props => <Timeline {...props} {...this.props} />}
-          />
-        </BrowserRouter>
+        <Provider store={this.state.store}>
+          <BrowserRouter>
+            <Route
+              path="/"
+              render={props => <Timeline {...props} {...this.props} />}
+            />
+          </BrowserRouter>
+        </Provider>
       </div>
     );
   }

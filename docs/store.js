@@ -61,28 +61,27 @@ System.register([], function(e) {
               return Object.prototype.hasOwnProperty.call(e, t);
             }),
             (n.p = ""),
-            n((n.s = 21))
+            n((n.s = 20))
           );
         })({
-          12: function(e, t, n) {
+          1: function(e, t, n) {
             "use strict";
-            function r(e) {
-              var t,
-                n = e.Symbol;
-              return (
-                "function" == typeof n
-                  ? n.observable
-                    ? (t = n.observable)
-                    : ((t = n("observable")), (n.observable = t))
-                  : (t = "@@observable"),
-                t
-              );
-            }
-            n.d(t, "a", function() {
-              return r;
-            });
+            (function(e, r) {
+              var o,
+                i = n(4);
+              o =
+                "undefined" != typeof self
+                  ? self
+                  : "undefined" != typeof window
+                  ? window
+                  : void 0 !== e
+                  ? e
+                  : r;
+              var u = Object(i.a)(o);
+              t.a = u;
+            }.call(this, n(6), n(10)(e)));
           },
-          19: function(e, t) {
+          10: function(e, t) {
             e.exports = function(e) {
               if (!e.webpackPolyfill) {
                 var t = Object.create(e);
@@ -105,25 +104,113 @@ System.register([], function(e) {
               return t;
             };
           },
-          2: function(e, t) {
-            var n;
-            n = (function() {
-              return this;
-            })();
-            try {
-              n = n || new Function("return this")();
-            } catch (e) {
-              "object" == typeof window && (n = window);
-            }
-            e.exports = n;
-          },
-          21: function(e, t, n) {
+          20: function(e, t, n) {
             "use strict";
             n.r(t),
               n.d(t, "storeInstance", function() {
-                return p;
+                return f;
               });
-            var r = n(6),
+            var r = n(3);
+            var o = function e(t, n) {
+              !(function(e, t) {
+                if (!(e instanceof t))
+                  throw new TypeError("Cannot call a class as a function");
+              })(this, e),
+                (this.year = t),
+                (this.month = n);
+            };
+            function i(e, t) {
+              var n = Object.keys(e);
+              if (Object.getOwnPropertySymbols) {
+                var r = Object.getOwnPropertySymbols(e);
+                t &&
+                  (r = r.filter(function(t) {
+                    return Object.getOwnPropertyDescriptor(e, t).enumerable;
+                  })),
+                  n.push.apply(n, r);
+              }
+              return n;
+            }
+            function u(e) {
+              for (var t = 1; t < arguments.length; t++) {
+                var n = null != arguments[t] ? arguments[t] : {};
+                t % 2
+                  ? i(Object(n), !0).forEach(function(t) {
+                      c(e, t, n[t]);
+                    })
+                  : Object.getOwnPropertyDescriptors
+                  ? Object.defineProperties(
+                      e,
+                      Object.getOwnPropertyDescriptors(n)
+                    )
+                  : i(Object(n)).forEach(function(t) {
+                      Object.defineProperty(
+                        e,
+                        t,
+                        Object.getOwnPropertyDescriptor(n, t)
+                      );
+                    });
+              }
+              return e;
+            }
+            function c(e, t, n) {
+              return (
+                t in e
+                  ? Object.defineProperty(e, t, {
+                      value: n,
+                      enumerable: !0,
+                      configurable: !0,
+                      writable: !0
+                    })
+                  : (e[t] = n),
+                e
+              );
+            }
+            var a = {
+              selectedTimeline: new o(
+                new Date().getFullYear(),
+                new Date().getMonth() + 1
+              ),
+              timelines: [
+                new o(new Date().getFullYear(), new Date().getMonth() + 1)
+              ]
+            };
+            var f = Object(r.c)(
+              Object(r.b)({
+                namespace: function() {
+                  return "timeline";
+                },
+                reducer: function() {
+                  var e =
+                      arguments.length > 0 && void 0 !== arguments[0]
+                        ? arguments[0]
+                        : a,
+                    t = arguments.length > 1 ? arguments[1] : void 0;
+                  switch (t.type) {
+                    case "CHANGE_TIME":
+                      var n = t.payload;
+                      return u({}, e, {
+                        selectedTimeline: new o(n.year, n.month)
+                      });
+                    default:
+                      return e;
+                  }
+                }
+              })
+            );
+          },
+          3: function(e, t, n) {
+            "use strict";
+            n.d(t, "a", function() {
+              return l;
+            }),
+              n.d(t, "b", function() {
+                return f;
+              }),
+              n.d(t, "c", function() {
+                return c;
+              });
+            var r = n(1),
               o = function() {
                 return Math.random()
                   .toString(36)
@@ -144,103 +231,29 @@ System.register([], function(e) {
                 t = Object.getPrototypeOf(t);
               return Object.getPrototypeOf(e) === t;
             }
-            function c(e, t) {
-              var n = t && t.type;
-              return (
-                "Given " +
-                ((n && 'action "' + String(n) + '"') || "an action") +
-                ', reducer "' +
-                e +
-                '" returned undefined. To ignore an action, you must explicitly return the previous state. If you want this reducer to hold no value, you can return null instead of undefined.'
-              );
-            }
-            var a = function e(t, n) {
-              !(function(e, t) {
-                if (!(e instanceof t))
-                  throw new TypeError("Cannot call a class as a function");
-              })(this, e),
-                (this.year = t),
-                (this.month = n);
-            };
-            function f(e, t) {
-              var n = Object.keys(e);
-              if (Object.getOwnPropertySymbols) {
-                var r = Object.getOwnPropertySymbols(e);
-                t &&
-                  (r = r.filter(function(t) {
-                    return Object.getOwnPropertyDescriptor(e, t).enumerable;
-                  })),
-                  n.push.apply(n, r);
-              }
-              return n;
-            }
-            function s(e) {
-              for (var t = 1; t < arguments.length; t++) {
-                var n = null != arguments[t] ? arguments[t] : {};
-                t % 2
-                  ? f(Object(n), !0).forEach(function(t) {
-                      l(e, t, n[t]);
-                    })
-                  : Object.getOwnPropertyDescriptors
-                  ? Object.defineProperties(
-                      e,
-                      Object.getOwnPropertyDescriptors(n)
-                    )
-                  : f(Object(n)).forEach(function(t) {
-                      Object.defineProperty(
-                        e,
-                        t,
-                        Object.getOwnPropertyDescriptor(n, t)
-                      );
-                    });
-              }
-              return e;
-            }
-            function l(e, t, n) {
-              return (
-                t in e
-                  ? Object.defineProperty(e, t, {
-                      value: n,
-                      enumerable: !0,
-                      configurable: !0,
-                      writable: !0
-                    })
-                  : (e[t] = n),
-                e
-              );
-            }
-            var d = {
-              selectedTimeline: new a(
-                new Date().getFullYear(),
-                new Date().getMonth() + 1
-              ),
-              timelines: [
-                new a(new Date().getFullYear(), new Date().getMonth() + 1)
-              ]
-            };
-            var p = (function e(t, n, o) {
-              var c;
+            function c(e, t, n) {
+              var o;
               if (
-                ("function" == typeof n && "function" == typeof o) ||
-                ("function" == typeof o && "function" == typeof arguments[3])
+                ("function" == typeof t && "function" == typeof n) ||
+                ("function" == typeof n && "function" == typeof arguments[3])
               )
                 throw new Error(
                   "It looks like you are passing several store enhancers to createStore(). This is not supported. Instead, compose them together to a single function."
                 );
               if (
-                ("function" == typeof n &&
-                  void 0 === o &&
-                  ((o = n), (n = void 0)),
-                void 0 !== o)
+                ("function" == typeof t &&
+                  void 0 === n &&
+                  ((n = t), (t = void 0)),
+                void 0 !== n)
               ) {
-                if ("function" != typeof o)
+                if ("function" != typeof n)
                   throw new Error("Expected the enhancer to be a function.");
-                return o(e)(t, n);
+                return n(c)(e, t);
               }
-              if ("function" != typeof t)
+              if ("function" != typeof e)
                 throw new Error("Expected the reducer to be a function.");
-              var a = t,
-                f = n,
+              var a = e,
+                f = t,
                 s = [],
                 l = s,
                 d = !1;
@@ -254,7 +267,7 @@ System.register([], function(e) {
                   );
                 return f;
               }
-              function h(e) {
+              function b(e) {
                 if ("function" != typeof e)
                   throw new Error("Expected the listener to be a function.");
                 if (d)
@@ -278,7 +291,7 @@ System.register([], function(e) {
                   }
                 );
               }
-              function b(e) {
+              function h(e) {
                 if (!u(e))
                   throw new Error(
                     "Actions must be plain objects. Use custom middleware for async actions."
@@ -301,11 +314,11 @@ System.register([], function(e) {
               function w(e) {
                 if ("function" != typeof e)
                   throw new Error("Expected the nextReducer to be a function.");
-                (a = e), b({ type: i.REPLACE });
+                (a = e), h({ type: i.REPLACE });
               }
               function v() {
                 var e,
-                  t = h;
+                  t = b;
                 return (
                   ((e = {
                     subscribe: function(e) {
@@ -325,102 +338,124 @@ System.register([], function(e) {
                 );
               }
               return (
-                b({ type: i.INIT }),
-                ((c = {
-                  dispatch: b,
-                  subscribe: h,
+                h({ type: i.INIT }),
+                ((o = {
+                  dispatch: h,
+                  subscribe: b,
                   getState: y,
                   replaceReducer: w
                 })[r.a] = v),
-                c
+                o
               );
-            })(
-              (function(e) {
-                for (var t = Object.keys(e), n = {}, r = 0; r < t.length; r++) {
-                  var o = t[r];
-                  0, "function" == typeof e[o] && (n[o] = e[o]);
-                }
-                var u,
-                  a = Object.keys(n);
-                try {
-                  !(function(e) {
-                    Object.keys(e).forEach(function(t) {
-                      var n = e[t];
-                      if (void 0 === n(void 0, { type: i.INIT }))
-                        throw new Error(
-                          'Reducer "' +
-                            t +
-                            "\" returned undefined during initialization. If the state passed to the reducer is undefined, you must explicitly return the initial state. The initial state may not be undefined. If you don't want to set a value for this reducer, you can use null instead of undefined."
-                        );
-                      if (
-                        void 0 === n(void 0, { type: i.PROBE_UNKNOWN_ACTION() })
-                      )
-                        throw new Error(
-                          'Reducer "' +
-                            t +
-                            "\" returned undefined when probed with a random type. Don't try to handle " +
-                            i.INIT +
-                            ' or other actions in "redux/*" namespace. They are considered private. Instead, you must return the current state for any unknown actions, unless it is undefined, in which case you must return the initial state, regardless of the action type. The initial state may not be undefined, but can be null.'
-                        );
-                    });
-                  })(n);
-                } catch (e) {
-                  u = e;
-                }
-                return function(e, t) {
-                  if ((void 0 === e && (e = {}), u)) throw u;
-                  for (var r = !1, o = {}, i = 0; i < a.length; i++) {
-                    var f = a[i],
-                      s = n[f],
-                      l = e[f],
-                      d = s(l, t);
-                    if (void 0 === d) {
-                      var p = c(f, t);
-                      throw new Error(p);
-                    }
-                    (o[f] = d), (r = r || d !== l);
+            }
+            function a(e, t) {
+              var n = t && t.type;
+              return (
+                "Given " +
+                ((n && 'action "' + String(n) + '"') || "an action") +
+                ', reducer "' +
+                e +
+                '" returned undefined. To ignore an action, you must explicitly return the previous state. If you want this reducer to hold no value, you can return null instead of undefined.'
+              );
+            }
+            function f(e) {
+              for (var t = Object.keys(e), n = {}, r = 0; r < t.length; r++) {
+                var o = t[r];
+                0, "function" == typeof e[o] && (n[o] = e[o]);
+              }
+              var u,
+                c = Object.keys(n);
+              try {
+                !(function(e) {
+                  Object.keys(e).forEach(function(t) {
+                    var n = e[t];
+                    if (void 0 === n(void 0, { type: i.INIT }))
+                      throw new Error(
+                        'Reducer "' +
+                          t +
+                          "\" returned undefined during initialization. If the state passed to the reducer is undefined, you must explicitly return the initial state. The initial state may not be undefined. If you don't want to set a value for this reducer, you can use null instead of undefined."
+                      );
+                    if (
+                      void 0 === n(void 0, { type: i.PROBE_UNKNOWN_ACTION() })
+                    )
+                      throw new Error(
+                        'Reducer "' +
+                          t +
+                          "\" returned undefined when probed with a random type. Don't try to handle " +
+                          i.INIT +
+                          ' or other actions in "redux/*" namespace. They are considered private. Instead, you must return the current state for any unknown actions, unless it is undefined, in which case you must return the initial state, regardless of the action type. The initial state may not be undefined, but can be null.'
+                      );
+                  });
+                })(n);
+              } catch (e) {
+                u = e;
+              }
+              return function(e, t) {
+                if ((void 0 === e && (e = {}), u)) throw u;
+                for (var r = !1, o = {}, i = 0; i < c.length; i++) {
+                  var f = c[i],
+                    s = n[f],
+                    l = e[f],
+                    d = s(l, t);
+                  if (void 0 === d) {
+                    var p = a(f, t);
+                    throw new Error(p);
                   }
-                  return (r = r || a.length !== Object.keys(e).length) ? o : e;
-                };
-              })({
-                namespace: function() {
-                  return "timeline";
-                },
-                reducer: function() {
-                  var e =
-                      arguments.length > 0 && void 0 !== arguments[0]
-                        ? arguments[0]
-                        : d,
-                    t = arguments.length > 1 ? arguments[1] : void 0;
-                  switch (t.type) {
-                    case "CHANGE_TIME":
-                      var n = t.payload;
-                      return s({}, e, {
-                        selectedTimeline: new a(n.year, n.month)
-                      });
-                    default:
-                      return e;
-                  }
+                  (o[f] = d), (r = r || d !== l);
                 }
-              })
-            );
+                return (r = r || c.length !== Object.keys(e).length) ? o : e;
+              };
+            }
+            function s(e, t) {
+              return function() {
+                return t(e.apply(this, arguments));
+              };
+            }
+            function l(e, t) {
+              if ("function" == typeof e) return s(e, t);
+              if ("object" != typeof e || null === e)
+                throw new Error(
+                  "bindActionCreators expected an object or a function, instead received " +
+                    (null === e ? "null" : typeof e) +
+                    '. Did you write "import ActionCreators from" instead of "import * as ActionCreators from"?'
+                );
+              var n = {};
+              for (var r in e) {
+                var o = e[r];
+                "function" == typeof o && (n[r] = s(o, t));
+              }
+              return n;
+            }
           },
-          6: function(e, t, n) {
+          4: function(e, t, n) {
             "use strict";
-            (function(e, r) {
-              var o,
-                i = n(12);
-              o =
-                "undefined" != typeof self
-                  ? self
-                  : "undefined" != typeof window
-                  ? window
-                  : void 0 !== e
-                  ? e
-                  : r;
-              var u = Object(i.a)(o);
-              t.a = u;
-            }.call(this, n(2), n(19)(e)));
+            function r(e) {
+              var t,
+                n = e.Symbol;
+              return (
+                "function" == typeof n
+                  ? n.observable
+                    ? (t = n.observable)
+                    : ((t = n("observable")), (n.observable = t))
+                  : (t = "@@observable"),
+                t
+              );
+            }
+            n.d(t, "a", function() {
+              return r;
+            });
+          },
+          6: function(e, t) {
+            var n;
+            n = (function() {
+              return this;
+            })();
+            try {
+              n = n || new Function("return this")();
+            } catch (e) {
+              "object" == typeof window && (n = window);
+            }
+            e.exports = n;
           }
         })
       );
