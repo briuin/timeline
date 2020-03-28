@@ -10,12 +10,13 @@ module.exports = webpackConfigEnv => {
     webpackConfigEnv
   });
 
-  defaultConfig.output.filename = "app.js";
-  defaultConfig.output.path = path.resolve(process.cwd(), "docs");
+  defaultConfig.entry = {
+    app: "./src/briuin-timeline.js",
+    store: "./src/store.js"
+  };
 
-  defaultConfig.plugins.push(
-    new CopyPlugin([{ from: "src/store.js", to: "store.js" }])
-  );
+  defaultConfig.output.filename = "[name].js";
+  defaultConfig.output.path = path.resolve(process.cwd(), "docs");
 
   const rxjsExternals = {
     externals: [/^rxjs\/?.*$/]
